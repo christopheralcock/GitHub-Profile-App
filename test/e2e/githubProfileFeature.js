@@ -37,6 +37,7 @@ describe('GitHub profile finder', function() {
 
 
   it('displays search results', function() {
+    expect(element.all(by.repeater('searchCtrl.searchResult.items')).count()).toEqual(0);
     element(by.model('searchCtrl.searchTerm')).sendKeys('spike01');
     element(by.className('btn')).click();
     expect(element.all(by.repeater('searchCtrl.searchResult.items')).count()).toBeGreaterThan(0);
